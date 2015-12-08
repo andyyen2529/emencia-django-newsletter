@@ -37,7 +37,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-#     'django.middleware.doc.XViewMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     )
@@ -79,7 +78,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'tagging',
     'emencia.django.newsletter',
-    'django_extensions',
     )
 
 DEBUG = True
