@@ -2,6 +2,12 @@
 Emencia Django Newsletter
 =========================
 
+Change from emencia-django-newsletter 0.2.
+
+This version is compatible with django 1.8.
+
+Related ticket : https://code.nuwainfo.com/trac/mercurius/ticket/2651
+
 The problematic was :
 
  *How to couple a contact base to a mailing list and sending newsletters throught Django ?*
