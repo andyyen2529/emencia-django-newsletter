@@ -6,7 +6,7 @@ from emencia.django import newsletter
 
 
 setup(name='emencia.django.newsletter',
-      version=newsletter.__version__,
+      version=0.2,
       description='A Django app for sending newsletter by email to a contact list.',
       long_description=open('README.rst').read() + '\n' +
                        open(os.path.join('docs', 'HISTORY.txt')).read(),
