@@ -33,5 +33,5 @@ setup(name='emencia.django.newsletter',
                         'django-tagging==0.4',
                         'vobject==0.8.1rc0',
                         'xlwt==1.0.0',
-                        'xlrd==1.0.0',
+                        'xlrd==0.9.4',
                         'Django==1.8.6'])
