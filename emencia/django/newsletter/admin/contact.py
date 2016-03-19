@@ -83,8 +83,6 @@ class ContactAdmin(admin.ModelAdmin):
 
     def export_excel(self, request, queryset, export_name=''):
         """Export selected contact in Excel"""
-        if not queryset:
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER'))        
         if not export_name:
             export_name = 'contacts_edn_%s' % datetime.now().strftime('%d-%m-%Y')
         return ExcelResponse(queryset, export_name)
