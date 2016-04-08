@@ -31,7 +31,7 @@ setup(name='emencia.django.newsletter',
                         'python-dateutil==1.5',
                         'BeautifulSoup==3.2.1',
                         'django-tagging==0.4',
-                        'vobject==0.8.1rc0',
+                        'vobject==0.8.2',
                         'xlwt==1.0.0',
                         'xlrd==0.9.4',
                         'Django==1.8.6'])
