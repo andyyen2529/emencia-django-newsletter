@@ -1,0 +1,808 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <noname@li.org>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Django\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-12-10 03:19-0600\n"
+"PO-Revision-Date: 2013-03-25 16:23+0800\n"
+"Last-Translator: \n"
+"Language-Team: Noname <noname@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Traditional Chinese\n"
+"X-Poedit-Country: TAIWAN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: forms.py:18
+msgid "Email"
+msgstr "電子郵件"
+
+#: forms.py:41
+msgid "Mailing lists"
+msgstr "郵件表"
+
+#: models.py:38
+#: models.py:153
+#: models.py:333
+msgid "name"
+msgstr "名稱"
+
+#: models.py:39
+msgid "server host"
+msgstr "伺服器主機"
+
+#: models.py:40
+msgid "server user"
+msgstr "伺服器用戶"
+
+#: models.py:41
+#: models.py:43
+msgid "Leave it empty if the host is public."
+msgstr "如果主機是公用的則保持空白"
+
+#: models.py:42
+msgid "server password"
+msgstr "伺服器密碼"
+
+#: models.py:44
+msgid "server port"
+msgstr "伺服器埠"
+
+#: models.py:45
+msgid "server use TLS"
+msgstr "伺服器使用TLS"
+
+#: models.py:47
+msgid "custom headers"
+msgstr "自訂頁頭"
+
+#: models.py:48
+msgid "key1: value1 key2: value2, splitted by return line."
+msgstr "鍵1:值1:鍵2:值2:按行均分"
+
+#: models.py:49
+msgid "mails per hour"
+msgstr "每小時郵件數"
+
+#: models.py:91
+msgid "SMTP server"
+msgstr "電子郵件傳輸伺服器"
+
+#: models.py:92
+msgid "SMTP servers"
+msgstr "電子郵件傳輸伺服器"
+
+#: models.py:97
+#: views/statistics.py:73
+msgid "email"
+msgstr "電子郵件"
+
+#: models.py:98
+#: views/statistics.py:72
+msgid "first name"
+msgstr "名"
+
+#: models.py:99
+#: views/statistics.py:72
+msgid "last name"
+msgstr "姓"
+
+#: models.py:101
+msgid "subscriber"
+msgstr "用戶"
+
+#: models.py:102
+msgid "valid email"
+msgstr "有效的電子郵件"
+
+#: models.py:103
+msgid "contact tester"
+msgstr "聯絡測試人"
+
+#: models.py:104
+msgid "tags"
+msgstr "標記"
+
+#: models.py:110
+#: models.py:162
+#: models.py:222
+#: models.py:255
+#: models.py:319
+msgid "creation date"
+msgstr "建立日期"
+
+#: models.py:111
+#: models.py:163
+#: models.py:223
+msgid "modification date"
+msgstr "更改日期"
+
+#: models.py:130
+msgid "mail format"
+msgstr "郵件格式"
+
+#: models.py:148
+#: models.py:314
+msgid "contact"
+msgstr "聯絡人"
+
+#: models.py:149
+#: models.py:336
+msgid "contacts"
+msgstr "聯絡人"
+
+#: models.py:154
+msgid "description"
+msgstr "描述"
+
+#: models.py:156
+#: models.py:167
+msgid "subscribers"
+msgstr "訂閱"
+
+#: models.py:158
+#: models.py:171
+msgid "unsubscribers"
+msgstr "取消訂閱"
+
+#: models.py:183
+#: models.py:206
+#: plugins/models.py:16
+msgid "mailing list"
+msgstr "郵件列表"
+
+#: models.py:184
+#: models.py:338
+msgid "mailing lists"
+msgstr "郵件列表"
+
+#: models.py:195
+msgid "draft"
+msgstr "草稿"
+
+#: models.py:196
+msgid "waiting sending"
+msgstr "正在等待發送"
+
+#: models.py:197
+msgid "sending"
+msgstr "正在發送"
+
+#: models.py:198
+#: models.py:304
+msgid "sent"
+msgstr "已發送"
+
+#: models.py:199
+msgid "canceled"
+msgstr "已取消"
+
+#: models.py:202
+#: models.py:252
+#: models.py:277
+#: plugins/models.py:13
+msgid "title"
+msgstr "標題"
+
+#: models.py:203
+msgid "content"
+msgstr "內容"
+
+#: models.py:203
+msgid "Or paste an URL."
+msgstr "或貼上一個URL"
+
+#: models.py:204
+msgid "Edit your newsletter here"
+msgstr "在這裡編輯你的電子報"
+
+#: models.py:207
+msgid "test contacts"
+msgstr "測試聯絡人"
+
+#: models.py:210
+msgid "smtp server"
+msgstr "郵件傳輸協定服務"
+
+#: models.py:212
+msgid "sender"
+msgstr "寄送人"
+
+#: models.py:214
+msgid "reply to"
+msgstr "回復"
+
+#: models.py:217
+#: models.py:315
+msgid "status"
+msgstr "狀態"
+
+#: models.py:218
+msgid "sending date"
+msgstr "發送日期"
+
+#: models.py:220
+msgid "Used for displaying the newsletter on the site."
+msgstr "用於在這個網站顯示電子報"
+
+#: models.py:245
+#: models.py:276
+#: models.py:313
+#: plugins/cms_plugins.py:13
+msgid "newsletter"
+msgstr "電子報"
+
+#: models.py:246
+#: models.py:340
+msgid "newsletters"
+msgstr "電子報"
+
+#: models.py:247
+msgid "Can change status"
+msgstr "可改變狀態"
+
+#: models.py:253
+msgid "url"
+msgstr "URL"
+
+#: models.py:265
+#: models.py:316
+msgid "link"
+msgstr "連結"
+
+#: models.py:266
+msgid "links"
+msgstr "連結"
+
+#: models.py:278
+msgid "file to attach"
+msgstr "附上文件"
+
+#: models.py:282
+msgid "attachment"
+msgstr "附件"
+
+#: models.py:283
+msgid "attachments"
+msgstr "附件"
+
+#: models.py:303
+msgid "sent in test"
+msgstr "發送測試"
+
+#: models.py:305
+msgid "error"
+msgstr "錯誤"
+
+#: models.py:306
+msgid "invalid email"
+msgstr "無效郵件"
+
+#: models.py:307
+msgid "opened"
+msgstr "已打開的"
+
+#: models.py:308
+msgid "opened on site"
+msgstr "在網站上開啟"
+
+#: models.py:309
+msgid "link opened"
+msgstr "開啟的連結"
+
+#: models.py:310
+msgid "unsubscription"
+msgstr "取消訂閱"
+
+#: models.py:316
+msgid "bounced"
+msgstr "反彈"
+
+#: models.py:317
+msgid "complaint"
+msgstr "抱怨"
+
+#: models.py:318
+msgid "rejected"
+msgstr "拒絕"
+
+#: models.py:328
+msgid "contact mailing status"
+msgstr "聯絡人郵件狀態"
+
+#: models.py:329
+msgid "contact mailing statuses"
+msgstr "聯絡人郵件狀態"
+
+#: models.py:334
+msgid "permissions group"
+msgstr "權限群組"
+
+#: models.py:347
+msgid "workgroup"
+msgstr "工作群組"
+
+#: models.py:348
+msgid "workgroups"
+msgstr "工作群組"
+
+#: admin/contact.py:36
+#: templates/newsletter/newsletter_statistics.html:186
+msgid "Status"
+msgstr "狀態"
+
+#: admin/contact.py:37
+msgid "Advanced"
+msgstr "進階"
+
+#: admin/contact.py:68
+msgid "No relative object"
+msgstr "沒有相關對象"
+
+#: admin/contact.py:70
+msgid "Related object"
+msgstr "相關對象"
+
+#: admin/contact.py:77
+msgid "Total subscriptions"
+msgstr "總訂閱"
+
+#: admin/contact.py:82
+msgid "Export contacts as VCard"
+msgstr "匯出聯絡人到VCard"
+
+#: admin/contact.py:89
+msgid "Export contacts in Excel"
+msgstr "匯出聯絡人到Excel"
+
+#: admin/contact.py:94
+#, python-format
+msgid "New mailinglist at %s"
+msgstr "新的郵件列表在%s"
+
+#: admin/contact.py:95
+#, python-format
+msgid "New mailing list created in admin at %s"
+msgstr "管理員在%s創建新的郵件列表"
+
+#: admin/contact.py:103
+#, python-format
+msgid "%s succesfully created."
+msgstr "%s成功創建。"
+
+#: admin/contact.py:106
+msgid "Create a mailinglist"
+msgstr "建立一個郵件列表"
+
+#: admin/contact.py:120
+#, python-format
+msgid "%s contacts succesfully imported."
+msgstr "%s個聯絡人成功匯入。"
+
+#: admin/contact.py:122
+msgid "Contact importation"
+msgstr "聯絡人輸入"
+
+#: admin/mailinglist.py:61
+msgid "Please select a least 2 mailing list."
+msgstr "請選擇至少2個郵件列表。"
+
+#: admin/mailinglist.py:73
+#, python-format
+msgid "Merging list at %s"
+msgstr "在%s的合併列表"
+
+#: admin/mailinglist.py:74
+#, python-format
+msgid "Mailing list created by merging at %s"
+msgstr "透過合併在%s創建郵件列表"
+
+#: admin/mailinglist.py:79
+#, python-format
+msgid "%s succesfully created by merging."
+msgstr "%s透過合併成功創建。"
+
+#: admin/mailinglist.py:82
+msgid "Merge selected mailinglists"
+msgstr "合併被選擇的郵件列表們"
+
+#: admin/mailinglist.py:87
+msgid "Export Subscribers"
+msgstr "匯出訂閱者"
+
+#: admin/mailinglist.py:89
+msgid "Export"
+msgstr "匯出"
+
+#: admin/newsletter.py:37
+msgid "Receivers"
+msgstr "接收人"
+
+#: admin/newsletter.py:38
+msgid "Sending"
+msgstr "寄送"
+
+#: admin/newsletter.py:39
+#: admin/smtpserver.py:12
+msgid "Miscellaneous"
+msgstr "雜項"
+
+#: admin/newsletter.py:75
+msgid "Default"
+msgstr "預設"
+
+#: admin/newsletter.py:99
+msgid "Unable to download HTML, due to errors within."
+msgstr "無法下載HTML，可能包含錯誤。"
+
+#: admin/newsletter.py:112
+msgid "View historic"
+msgstr "觀看歷史"
+
+#: admin/newsletter.py:113
+#: admin/newsletter.py:122
+msgid "Not available"
+msgstr "不可用"
+
+#: admin/newsletter.py:115
+msgid "Historic"
+msgstr "歷史"
+
+#: admin/newsletter.py:121
+msgid "View statistics"
+msgstr "觀看統計"
+
+#: admin/newsletter.py:124
+msgid "Statistics"
+msgstr "統計"
+
+#: admin/newsletter.py:134
+msgid "Unable send newsletter, due to errors within HTML."
+msgstr "無法寄送電子報，可能HTML包含錯誤。"
+
+#: admin/newsletter.py:136
+#, python-format
+msgid "%s succesfully sent."
+msgstr "%s成功寄送"
+
+#: admin/newsletter.py:138
+#, python-format
+msgid "No test contacts assigned for %s."
+msgstr "沒有測試聯絡人分配給 %s"
+
+#: admin/newsletter.py:139
+msgid "Send test email"
+msgstr "寄送測試郵件"
+
+#: admin/newsletter.py:147
+#, python-format
+msgid "%s newletters are ready to send"
+msgstr "%s個電子報已經準備好寄送"
+
+#: admin/newsletter.py:148
+msgid "Make ready to send"
+msgstr "設定為準備寄送"
+
+#: admin/newsletter.py:157
+#, python-format
+msgid "%s newletters are cancelled"
+msgstr "%s個電子報被取消"
+
+#: admin/newsletter.py:158
+msgid "Cancel the sending"
+msgstr "取消寄送"
+
+#: admin/smtpserver.py:10
+msgid "Configuration"
+msgstr "配置"
+
+#: admin/smtpserver.py:33
+msgid "Check connection"
+msgstr "檢查連線"
+
+#: admin/workgroup.py:18
+msgid "Contacts length"
+msgstr "聯絡人長度"
+
+#: admin/workgroup.py:22
+msgid "Mailing List length"
+msgstr "郵件列表長度"
+
+#: admin/workgroup.py:26
+msgid "Newsletter length"
+msgstr "電子報長度"
+
+#: plugins/cms_plugins.py:15
+#, fuzzy
+msgid "Subscription Form"
+msgstr "描述"
+
+#: plugins/models.py:14
+#, fuzzy
+msgid "show description"
+msgstr "描述"
+
+#: plugins/models.py:15
+msgid "Show the mailing list's description."
+msgstr "顯示郵件列表的描述。"
+
+#: plugins/models.py:17
+msgid "Mailing List to subscribe to."
+msgstr "郵件列表訂閱。"
+
+#: templates/admin/newsletter/contact/change_list.html:36
+#, python-format
+msgid "Add %(name)s"
+msgstr "新增 %(name)s"
+
+#: templates/admin/newsletter/contact/change_list.html:42
+msgid "Actions"
+msgstr "動作"
+
+#: templates/admin/newsletter/contact/change_list.html:51
+#, python-format
+msgid "Import %(name)ss"
+msgstr "匯入 %(name)s"
+
+#: templates/admin/newsletter/contact/change_list.html:56
+msgid "Add to a mailing list"
+msgstr "加入到一個郵件列表"
+
+#: templates/admin/newsletter/contact/change_list.html:63
+#, python-format
+msgid "Export %(name)s as VCard"
+msgstr "匯出 %(name)s 到VCard"
+
+#: templates/admin/newsletter/contact/change_list.html:68
+#, python-format
+msgid "Export %(name)s as Excel"
+msgstr "匯出 %(name)s 到Excel"
+
+#: templates/newsletter/contact_import.html:7
+msgid "Home"
+msgstr "首頁"
+
+#: templates/newsletter/contact_import.html:10
+msgid "Importation"
+msgstr "匯入"
+
+#: templates/newsletter/contact_import.html:24
+msgid "Excel"
+msgstr ""
+
+#: templates/newsletter/contact_import.html:27
+msgid "Excel file (.xls)"
+msgstr "Excel檔案(.xls)"
+
+#: templates/newsletter/contact_import.html:31
+msgid "Import contacts from a Excel file."
+msgstr "從Excel檔案匯入聯絡人"
+
+#: templates/newsletter/contact_import.html:32
+msgid "Columns are [email][last name][first name][tags]."
+msgstr "欄位為 [email][last name][first name][tags] 。"
+
+#: templates/newsletter/contact_import.html:33
+#: templates/newsletter/contact_import.html:56
+msgid "All columns are optionnal excepting the email."
+msgstr "除了電子郵件以外，所有欄位皆為可選項"
+
+#: templates/newsletter/contact_import.html:38
+#: templates/newsletter/contact_import.html:61
+#: templates/newsletter/contact_import.html:81
+msgid "Import"
+msgstr "匯入"
+
+#: templates/newsletter/contact_import.html:47
+msgid "Text"
+msgstr "內文"
+
+#: templates/newsletter/contact_import.html:50
+msgid "Text file (.txt, .csv)"
+msgstr "文字檔案(.txt, .csv)"
+
+#: templates/newsletter/contact_import.html:54
+msgid "Import contacts from a text file, or a CSV file."
+msgstr "從文字檔案或一個CSV檔案匯入聯絡人"
+
+#: templates/newsletter/contact_import.html:55
+msgid "Columns are [email][last name][first name][tags], splitted by a dot coma."
+msgstr "欄位為 [email][last name][first name][tags] ，已符號逗點(,)區隔。"
+
+#: templates/newsletter/contact_import.html:70
+msgid "VCard"
+msgstr ""
+
+#: templates/newsletter/contact_import.html:73
+msgid "VCard file (.cvf)"
+msgstr "VCard檔案(.cvf)"
+
+#: templates/newsletter/contact_import.html:77
+msgid "Import contacts from your favorite mail client, by providing a VCard file."
+msgstr "從您最喜愛的電子郵件客戶端，提供一個VCard檔案來匯入聯絡人。"
+
+#: templates/newsletter/mailing_list_subscribe.html:4
+#: templates/newsletter/mailing_list_subscribe.html:7
+msgid "Subscription to mailing list"
+msgstr "郵件列表"
+
+#: templates/newsletter/mailing_list_subscribe.html:10
+msgid "Thanks for your subscription!"
+msgstr "感謝您的訂閱！"
+
+#: templates/newsletter/mailing_list_subscribe.html:16
+msgid "Validate this form to subscribe to the mailing lists."
+msgstr "驗證此訂閱的郵件列表。"
+
+#: templates/newsletter/mailing_list_subscribe.html:21
+#: templates/newsletter/cms/subscription_form.html:19
+msgid "Subscribe"
+msgstr "訂閱"
+
+#: templates/newsletter/mailing_list_unsubscribe.html:4
+#: templates/newsletter/mailing_list_unsubscribe.html:7
+msgid "Unsubscription"
+msgstr "取消訂閱"
+
+#: templates/newsletter/mailing_list_unsubscribe.html:9
+msgid "You are unsubscribed for this mailing list."
+msgstr "你已從這個郵件列表退訂。"
+
+#: templates/newsletter/mailing_list_unsubscribe.html:11
+msgid "Validate this form to unsubscribe to this mailing list."
+msgstr "驗證此取消訂閱的郵件列表。"
+
+#: templates/newsletter/mailing_list_unsubscribe.html:14
+msgid "Unsubscribe"
+msgstr "取消訂閱"
+
+#: templates/newsletter/newsletter_historic.html:9
+#: templates/newsletter/newsletter_statistics.html:68
+msgid "Admin."
+msgstr "管理員。"
+
+#: templates/newsletter/newsletter_historic.html:23
+msgid "Date"
+msgstr "日期"
+
+#: templates/newsletter/newsletter_historic.html:24
+msgid "Contact"
+msgstr "聯絡人"
+
+#: templates/newsletter/newsletter_historic.html:25
+msgid "Action"
+msgstr "動作"
+
+#: templates/newsletter/newsletter_statistics.html:80
+#: templates/newsletter/newsletter_statistics.html:81
+msgid "Broadcasting statistics"
+msgstr "廣播統計"
+
+#: templates/newsletter/newsletter_statistics.html:83
+#: views/statistics.py:135
+msgid "Total openings"
+msgstr "總開啟數"
+
+#: templates/newsletter/newsletter_statistics.html:88
+msgid "Openings on site"
+msgstr "在網站上開啟"
+
+#: templates/newsletter/newsletter_statistics.html:93
+msgid "Total openings unique"
+msgstr ""
+
+#: templates/newsletter/newsletter_statistics.html:98
+msgid "Unknow delivery"
+msgstr "未知的寄送"
+
+#: templates/newsletter/newsletter_statistics.html:103
+msgid "Unsubscriptions"
+msgstr "取消訂閱"
+
+#: templates/newsletter/newsletter_statistics.html:108
+msgid "Openings average"
+msgstr "開啟平均值"
+
+#: templates/newsletter/newsletter_statistics.html:116
+#: templates/newsletter/newsletter_statistics.html:117
+msgid "Links statistics"
+msgstr "連結統計"
+
+#: templates/newsletter/newsletter_statistics.html:119
+#: views/statistics.py:139
+msgid "Total clicked links"
+msgstr "總共點擊的連結"
+
+#: templates/newsletter/newsletter_statistics.html:124
+msgid "Total clicked links unique"
+msgstr ""
+
+#: templates/newsletter/newsletter_statistics.html:129
+msgid "Clicked links by openings"
+msgstr "透過開啟來點擊的連結"
+
+#: templates/newsletter/newsletter_statistics.html:134
+msgid "Clicked links average"
+msgstr "點及連結的平均值"
+
+#: templates/newsletter/newsletter_statistics.html:146
+#: views/statistics.py:143
+msgid "Consultation histogram"
+msgstr "諮詢直方圖"
+
+#: templates/newsletter/newsletter_statistics.html:149
+msgid "Period"
+msgstr "期間"
+
+#: templates/newsletter/newsletter_statistics.html:176
+msgid "Report"
+msgstr "報告"
+
+#: templates/newsletter/newsletter_statistics.html:178
+msgid "Download CSV report"
+msgstr "下載CSV報告"
+
+#: templates/newsletter/newsletter_statistics.html:183
+msgid "Informations"
+msgstr "資訊"
+
+#: templates/newsletter/newsletter_statistics.html:184
+msgid "Recipients"
+msgstr "收件人"
+
+#: templates/newsletter/newsletter_statistics.html:185
+msgid "View"
+msgstr "觀看"
+
+#: templates/newsletter/newsletter_statistics.html:188
+msgid "Sending date"
+msgstr "寄送日期"
+
+#: templates/newsletter/newsletter_statistics.html:191
+msgid "Tests sent"
+msgstr "測試發送"
+
+#: templates/newsletter/newsletter_statistics.html:196
+msgid "Top Links"
+msgstr ""
+
+#: templates/newsletter/newsletter_statistics.html:197
+msgid "Density map"
+msgstr ""
+
+#: templates/newsletter/newsletter_statistics.html:206
+msgid "No Top Links yet."
+msgstr ""
+
+#: templates/newsletter/cms/subscription_form.html:7
+msgid "You have successfully subscribed to the mailing list!"
+msgstr ""
+
+#: views/statistics.py:52
+#, python-format
+msgid "Statistics of %s"
+msgstr ""
+
+#: views/statistics.py:73
+msgid "openings"
+msgstr ""
+
+#: views/statistics.py:135
+msgid "#val# openings"
+msgstr ""
+
+#: views/statistics.py:139
+msgid "#val# clicks"
+msgstr ""
+
+#: views/tracking.py:45
+#, python-format
+msgid "Historic of %s"
+msgstr "%s 的歷史"
+

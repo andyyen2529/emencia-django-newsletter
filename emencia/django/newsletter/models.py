@@ -279,7 +279,24 @@ class Attachment(models.Model):
     title = models.CharField(_('title'), max_length=255)
     file_attachment = models.FileField(_('file to attach'), max_length=255,
                                        upload_to=get_newsletter_storage_path)
+    # MODIFY START: Modify by Nuwa, we need a field to save content type.
+    from mimetypes import types_map
+    
+    _types = {}
+    for i in types_map:
+        extension = types_map[i]
+        _t = _types.get(extension, [])
+        _t.append(i)
+        _types[extension] = _t
+    
+    MIME_TYPES = []
+    for (n, i) in enumerate(_types):
+        extensions = _types[i]
+        MIME_TYPES.append((n, '%s (%s)' % (i, ','.join(extensions))))
 
+    contentType = models.CharField(_('Content type'), max_length=255, 
+                                   blank=True, choices=MIME_TYPES)
+    # END.
     class Meta:
         verbose_name = _('attachment')
         verbose_name_plural = _('attachments')
@@ -301,6 +318,9 @@ class ContactMailingStatus(models.Model):
     OPENED_ON_SITE = 5
     LINK_OPENED = 6
     UNSUBSCRIPTION = 7
+    BOUNCE = 8
+    COMPLAIN = 9
+    REJECT = 10
 
     STATUS_CHOICES = ((SENT_TEST, _('sent in test')),
                       (SENT, _('sent')),
@@ -310,6 +330,9 @@ class ContactMailingStatus(models.Model):
                       (OPENED_ON_SITE, _('opened on site')),
                       (LINK_OPENED, _('link opened')),
                       (UNSUBSCRIPTION, _('unsubscription')),
+                      (BOUNCE, _('bounce')),
+                      (COMPLAIN, _('complain')),
+                      (REJECT, _('reject'))
                       )
 
     newsletter = models.ForeignKey(Newsletter, verbose_name=_('newsletter'))
