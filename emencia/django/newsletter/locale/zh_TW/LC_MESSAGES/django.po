@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: Django\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-12-10 03:19-0600\n"
-"PO-Revision-Date: 2013-03-25 16:23+0800\n"
+"PO-Revision-Date: 2016-05-04 17:11+0800\n"
 "Last-Translator: \n"
 "Language-Team: Noname <noname@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Traditional Chinese\n"
-"X-Poedit-Country: TAIWAN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"Language: zh_TW\n"
+"X-Generator: Poedit 1.8.4\n"
 
 #: forms.py:18
 msgid "Email"
@@ -27,9 +27,7 @@ msgstr "電子郵件"
 msgid "Mailing lists"
 msgstr "郵件表"
 
-#: models.py:38
-#: models.py:153
-#: models.py:333
+#: models.py:38 models.py:153 models.py:333
 msgid "name"
 msgstr "名稱"
 
@@ -41,8 +39,7 @@ msgstr "伺服器主機"
 msgid "server user"
 msgstr "伺服器用戶"
 
-#: models.py:41
-#: models.py:43
+#: models.py:41 models.py:43
 msgid "Leave it empty if the host is public."
 msgstr "如果主機是公用的則保持空白"
 
@@ -78,18 +75,15 @@ msgstr "電子郵件傳輸伺服器"
 msgid "SMTP servers"
 msgstr "電子郵件傳輸伺服器"
 
-#: models.py:97
-#: views/statistics.py:73
+#: models.py:97 views/statistics.py:73
 msgid "email"
 msgstr "電子郵件"
 
-#: models.py:98
-#: views/statistics.py:72
+#: models.py:98 views/statistics.py:72
 msgid "first name"
 msgstr "名"
 
-#: models.py:99
-#: views/statistics.py:72
+#: models.py:99 views/statistics.py:72
 msgid "last name"
 msgstr "姓"
 
@@ -109,17 +103,11 @@ msgstr "聯絡測試人"
 msgid "tags"
 msgstr "標記"
 
-#: models.py:110
-#: models.py:162
-#: models.py:222
-#: models.py:255
-#: models.py:319
+#: models.py:110 models.py:162 models.py:222 models.py:255 models.py:319
 msgid "creation date"
 msgstr "建立日期"
 
-#: models.py:111
-#: models.py:163
-#: models.py:223
+#: models.py:111 models.py:163 models.py:223
 msgid "modification date"
 msgstr "更改日期"
 
@@ -127,13 +115,11 @@ msgstr "更改日期"
 msgid "mail format"
 msgstr "郵件格式"
 
-#: models.py:148
-#: models.py:314
+#: models.py:148 models.py:314
 msgid "contact"
 msgstr "聯絡人"
 
-#: models.py:149
-#: models.py:336
+#: models.py:149 models.py:336
 msgid "contacts"
 msgstr "聯絡人"
 
@@ -141,24 +127,19 @@ msgstr "聯絡人"
 msgid "description"
 msgstr "描述"
 
-#: models.py:156
-#: models.py:167
+#: models.py:156 models.py:167
 msgid "subscribers"
 msgstr "訂閱"
 
-#: models.py:158
-#: models.py:171
+#: models.py:158 models.py:171
 msgid "unsubscribers"
 msgstr "取消訂閱"
 
-#: models.py:183
-#: models.py:206
-#: plugins/models.py:16
+#: models.py:183 models.py:206 plugins/models.py:16
 msgid "mailing list"
 msgstr "郵件列表"
 
-#: models.py:184
-#: models.py:338
+#: models.py:184 models.py:338
 msgid "mailing lists"
 msgstr "郵件列表"
 
@@ -174,8 +155,7 @@ msgstr "正在等待發送"
 msgid "sending"
 msgstr "正在發送"
 
-#: models.py:198
-#: models.py:304
+#: models.py:198 models.py:304
 msgid "sent"
 msgstr "已發送"
 
@@ -183,10 +163,7 @@ msgstr "已發送"
 msgid "canceled"
 msgstr "已取消"
 
-#: models.py:202
-#: models.py:252
-#: models.py:277
-#: plugins/models.py:13
+#: models.py:202 models.py:252 models.py:277 plugins/models.py:13
 msgid "title"
 msgstr "標題"
 
@@ -218,8 +195,7 @@ msgstr "寄送人"
 msgid "reply to"
 msgstr "回復"
 
-#: models.py:217
-#: models.py:315
+#: models.py:217 models.py:315
 msgid "status"
 msgstr "狀態"
 
@@ -231,15 +207,11 @@ msgstr "發送日期"
 msgid "Used for displaying the newsletter on the site."
 msgstr "用於在這個網站顯示電子報"
 
-#: models.py:245
-#: models.py:276
-#: models.py:313
-#: plugins/cms_plugins.py:13
+#: models.py:245 models.py:276 models.py:313 plugins/cms_plugins.py:13
 msgid "newsletter"
 msgstr "電子報"
 
-#: models.py:246
-#: models.py:340
+#: models.py:246 models.py:340
 msgid "newsletters"
 msgstr "電子報"
 
@@ -251,8 +223,7 @@ msgstr "可改變狀態"
 msgid "url"
 msgstr "URL"
 
-#: models.py:265
-#: models.py:316
+#: models.py:265 models.py:316
 msgid "link"
 msgstr "連結"
 
@@ -277,8 +248,8 @@ msgid "sent in test"
 msgstr "發送測試"
 
 #: models.py:305
-msgid "error"
-msgstr "錯誤"
+msgid "sent error"
+msgstr "發送失敗"
 
 #: models.py:306
 msgid "invalid email"
@@ -332,8 +303,7 @@ msgstr "工作群組"
 msgid "workgroups"
 msgstr "工作群組"
 
-#: admin/contact.py:36
-#: templates/newsletter/newsletter_statistics.html:186
+#: admin/contact.py:36 templates/newsletter/newsletter_statistics.html:186
 msgid "Status"
 msgstr "狀態"
 
@@ -428,8 +398,7 @@ msgstr "接收人"
 msgid "Sending"
 msgstr "寄送"
 
-#: admin/newsletter.py:39
-#: admin/smtpserver.py:12
+#: admin/newsletter.py:39 admin/smtpserver.py:12
 msgid "Miscellaneous"
 msgstr "雜項"
 
@@ -445,8 +414,7 @@ msgstr "無法下載HTML，可能包含錯誤。"
 msgid "View historic"
 msgstr "觀看歷史"
 
-#: admin/newsletter.py:113
-#: admin/newsletter.py:122
+#: admin/newsletter.py:113 admin/newsletter.py:122
 msgid "Not available"
 msgstr "不可用"
 
@@ -684,8 +652,7 @@ msgstr "動作"
 msgid "Broadcasting statistics"
 msgstr "廣播統計"
 
-#: templates/newsletter/newsletter_statistics.html:83
-#: views/statistics.py:135
+#: templates/newsletter/newsletter_statistics.html:83 views/statistics.py:135
 msgid "Total openings"
 msgstr "總開啟數"
 
@@ -714,8 +681,7 @@ msgstr "開啟平均值"
 msgid "Links statistics"
 msgstr "連結統計"
 
-#: templates/newsletter/newsletter_statistics.html:119
-#: views/statistics.py:139
+#: templates/newsletter/newsletter_statistics.html:119 views/statistics.py:139
 msgid "Total clicked links"
 msgstr "總共點擊的連結"
 
@@ -731,8 +697,7 @@ msgstr "透過開啟來點擊的連結"
 msgid "Clicked links average"
 msgstr "點及連結的平均值"
 
-#: templates/newsletter/newsletter_statistics.html:146
-#: views/statistics.py:143
+#: templates/newsletter/newsletter_statistics.html:146 views/statistics.py:143
 msgid "Consultation histogram"
 msgstr "諮詢直方圖"
 
@@ -805,4 +770,3 @@ msgstr ""
 #, python-format
 msgid "Historic of %s"
 msgstr "%s 的歷史"
-
