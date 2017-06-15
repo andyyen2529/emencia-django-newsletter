@@ -24,10 +24,14 @@ def body_insertion(content, insertion, end=False):
     soup = BeautifulSoup(content)
 
     if end:
-        soup.body.append(insertion)
+        soup.body.append(BeautifulSoup(insertion))
     else:
-        soup.body.insert(0, insertion)
-    return soup.prettify()
+        soup.body.insert(0, BeautifulSoup(insertion))
+
+    if USE_PRETTIFY:
+        return soup.prettify()
+    else:
+        return soup.renderContents()
 
 
 def track_links(content, context):
