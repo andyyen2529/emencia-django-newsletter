@@ -16,11 +16,7 @@ def body_insertion(content, insertion, end=False):
         soup.body.append(BeautifulSoup(insertion))
     else:
         soup.body.insert(0, BeautifulSoup(insertion))
-
-    if USE_PRETTIFY:
-        return soup.prettify()
-    else:
-        return soup.renderContents()
+    return soup.prettify()
 
 
 def track_links(content, context):
