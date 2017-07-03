@@ -318,9 +318,9 @@ class ContactMailingStatus(models.Model):
     OPENED_ON_SITE = 5
     LINK_OPENED = 6
     UNSUBSCRIPTION = 7
-    BOUNCE = 8
-    COMPLAIN = 9
-    REJECT = 10
+    BOUNCED = 8
+    COMPLAINT = 9
+    REJECTED = 10
 
     STATUS_CHOICES = ((SENT_TEST, _('sent in test')),
                       (SENT, _('sent')),
@@ -330,9 +330,9 @@ class ContactMailingStatus(models.Model):
                       (OPENED_ON_SITE, _('opened on site')),
                       (LINK_OPENED, _('link opened')),
                       (UNSUBSCRIPTION, _('unsubscription')),
-                      (BOUNCE, _('bounced')),
-                      (COMPLAIN, _('complaint')),
-                      (REJECT, _('rejected'))
+                      (BOUNCED, _('bounced')),
+                      (COMPLAINT, _('complaint')),
+                      (REJECTED, _('rejected'))
                       )
 
     newsletter = models.ForeignKey(Newsletter, verbose_name=_('newsletter'))
