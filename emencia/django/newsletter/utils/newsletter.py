@@ -1,7 +1,7 @@
 """Utils for newsletter"""
 import urllib2
 
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 from django.core.urlresolvers import reverse
 
 from emencia.django.newsletter.models import Link
@@ -19,14 +19,14 @@ def get_webpage_content(url):
 
 def body_insertion(content, insertion, end=False):
     """Insert an HTML content into the body HTML node"""
-    if not content.startswith('<body'):
+    if not '<body>' in content:
         content = '<body>%s</body>' % content
     soup = BeautifulSoup(content)
 
     if end:
-        soup.body.append(insertion)
+        soup.body.append(BeautifulSoup(insertion).body.findChildren()[0])
     else:
-        soup.body.insert(0, insertion)
+        soup.body.insert(0, BeautifulSoup(insertion).body.findChildren()[0])
     return soup.prettify()
 
 
@@ -41,10 +41,19 @@ def track_links(content, context):
         if link_markup.get('href'):
             link_href = link_markup['href']
             link_title = link_markup.get('title', link_href)
-            link, created = Link.objects.get_or_create(url=link_href,
-                                                       defaults={'title': link_title})
-            link_markup['href'] = 'http://%s%s' % (context['domain'], reverse('newsletter_newsletter_tracking_link',
-                                                                              args=[context['newsletter'].slug,
-                                                                                    context['uidb36'], context['token'],
-                                                                                    link.pk]))
+            link, created = Link.objects.get_or_create(
+                url=link_href,
+                defaults={'title': link_title}
+            )
+            link_markup['href'] = 'http://%s%s' % (
+                context['domain'], 
+                reverse(
+                    'newsletter_newsletter_tracking_link',
+                    args=[
+                        context['newsletter'].slug,
+                        context['uidb36'], context['token'],
+                        link.pk
+                    ]
+                )
+            )
     return soup.prettify()
