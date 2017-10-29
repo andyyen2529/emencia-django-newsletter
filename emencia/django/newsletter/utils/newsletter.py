@@ -24,15 +24,9 @@ def body_insertion(content, insertion, end=False):
     soup = BeautifulSoup(content)
 
     if end:
-<<<<<<< HEAD
-        soup.body.append(BeautifulSoup(insertion))
-    else:
-        soup.body.insert(0, BeautifulSoup(insertion))
-=======
         soup.body.append(BeautifulSoup(insertion).body.findChildren()[0])
     else:
         soup.body.insert(0, BeautifulSoup(insertion).body.findChildren()[0])
->>>>>>> issue84
     return soup.prettify()
 
 
