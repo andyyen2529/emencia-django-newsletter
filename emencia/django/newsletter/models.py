@@ -201,9 +201,18 @@ class Newsletter(models.Model):
                       (CANCELED, _('canceled')),
                       )
 
+    # The title of sent mail.
     title = models.CharField(_('title'), max_length=255)
-    content = models.TextField(_('content'), help_text=_('Or paste an URL.'),
-                               default='<body>\n<!-- %s -->\n</body>' % ugettext('Edit your newsletter here'))
+    # The title of newsletter. 
+    # See https://code.nuwainfo.com/trac/mercurius/ticket/3021
+    subjectTitle = models.CharField(
+        _('subject title'), max_length=255, blank=True, null=True
+    )
+    content = models.TextField(
+        _('content'), help_text=_('Or paste an URL.'),
+        default='<body>\n<!-- %s -->\n</body>' % ugettext(
+            'Edit your newsletter here')
+    )
 
     mailing_list = models.ForeignKey(MailingList, verbose_name=_('mailing list'))
     test_contacts = models.ManyToManyField(Contact, verbose_name=_('test contacts'),
@@ -239,6 +248,13 @@ class Newsletter(models.Model):
     def get_statistics_url(self):
         return ('newsletter_newsletter_statistics', (self.slug,))
 
+    @property
+    def get_statistics_display_url(self):
+        return reverse(
+            'Theophrastus.views.displayStatistics',
+            kwargs={'slug': self.slug}
+        )
+
     def __unicode__(self):
         return self.title
 
@@ -267,13 +283,12 @@ class Link(models.Model):
         verbose_name = _('link')
         verbose_name_plural = _('links')
 
+def get_newsletter_storage_path(self, filename):
+        filename = force_unicode(filename)
+        return '/'.join([NEWSLETTER_BASE_PATH, self.newsletter.slug, filename])
 
 class Attachment(models.Model):
     """Attachment file in a newsletter"""
-
-    def get_newsletter_storage_path(self, filename):
-        filename = force_unicode(filename)
-        return '/'.join([NEWSLETTER_BASE_PATH, self.newsletter.slug, filename])
 
     newsletter = models.ForeignKey(Newsletter, verbose_name=_('newsletter'))
     title = models.CharField(_('title'), max_length=255)

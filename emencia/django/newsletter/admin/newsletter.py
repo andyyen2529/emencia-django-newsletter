@@ -2,6 +2,7 @@
 from HTMLParser import HTMLParseError
 
 from django.db.models import Q
+from django.conf import settings
 from django.contrib import admin
 from django.utils.translation import ugettext as _
 
@@ -32,7 +33,7 @@ class NewsletterAdmin(admin.ModelAdmin):
     list_filter = ('status', 'sending_date', 'creation_date', 'modification_date')
     search_fields = ('title', 'content', 'header_sender', 'header_reply')
     filter_horizontal = ['test_contacts']
-    fieldsets = ((None, {'fields': ('title', 'content',)}),
+    fieldsets = ((None, {'fields': ('title', 'subjectTitle', 'content',)}),
                  (_('Receivers'), {'fields': ('mailing_list', 'test_contacts',)}),
                  (_('Sending'), {'fields': ('sending_date', 'status',)}),
                  (_('Miscellaneous'), {'fields': ('server', 'header_sender',
@@ -44,6 +45,12 @@ class NewsletterAdmin(admin.ModelAdmin):
     actions = ['send_mail_test', 'make_ready_to_send', 'make_cancel_sending']
     actions_on_top = False
     actions_on_bottom = True
+    if hasattr(settings, 'NEWSLETTER_DISPLAY_PAGINATOR_NUM'):
+        list_per_page = settings.NEWSLETTER_DISPLAY_PAGINATOR_NUM
+    else:
+        list_per_page = 20
+
+    ordering = ['-creation_date', '-sending_date']
 
     def get_actions(self, request):
         actions = super(NewsletterAdmin, self).get_actions(request)
