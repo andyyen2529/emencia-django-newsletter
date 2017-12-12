@@ -46,7 +46,7 @@ class Mailer(object):
         self.newsletter = newsletter
         self.expedition_list = self.get_expedition_list()
         self.newsletter_template = Template(self.newsletter.content)
-        self.title_template = Template(self.newsletter.title)
+        self.title_template = Template(self.newsletter.subject)
 
     def run(self):
         """Send the mails"""

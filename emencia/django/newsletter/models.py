@@ -205,8 +205,9 @@ class Newsletter(models.Model):
     title = models.CharField(_('title'), max_length=255)
     # The title of newsletter. 
     # See https://code.nuwainfo.com/trac/mercurius/ticket/3021
-    subjectTitle = models.CharField(
-        _('subject title'), max_length=255, blank=True, null=True
+    subject = models.CharField(
+        _('subject'), max_length=255, blank=False, null=False, 
+        default='This is subject.'
     )
     content = models.TextField(
         _('content'), help_text=_('Or paste an URL.'),
