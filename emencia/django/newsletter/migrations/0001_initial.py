@@ -100,7 +100,6 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('title', models.CharField(max_length=255, verbose_name='title')),
-                ('subjectTitle', models.CharField(max_length=255, null=True, verbose_name='title', blank=True)),
                 ('content', models.TextField(default='<body>\n<!-- Edit your newsletter here -->\n</body>', help_text='Or paste an URL.', verbose_name='content')),
                 ('header_sender', models.CharField(default=b'Emencia Newsletter<noreply@emencia.com>', max_length=255, verbose_name='sender')),
                 ('header_reply', models.CharField(default=b'Emencia Newsletter<noreply@emencia.com>', max_length=255, verbose_name='reply to')),
