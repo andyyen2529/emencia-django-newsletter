@@ -11,6 +11,7 @@ from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.contenttypes import generic
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.auth.models import Group
 from django.utils.encoding import force_unicode
 
@@ -185,7 +186,6 @@ class MailingList(models.Model):
         verbose_name = _('mailing list')
         verbose_name_plural = _('mailing lists')
 
-
 class Newsletter(models.Model):
     """Newsletter to be sended to contacts"""
     DRAFT = 0
@@ -221,6 +221,15 @@ class Newsletter(models.Model):
 
     server = models.ForeignKey(SMTPServer, verbose_name=_('smtp server'),
                                default=1)
+
+    headerContentType = models.ForeignKey(ContentType, null=True, blank=True, related_name='newsletter_header')
+    headerId = models.PositiveIntegerField(null=True, blank=True)
+    header = GenericForeignKey('headerContentType', 'headerId')
+
+    footerContentType = models.ForeignKey(ContentType, null=True, blank=True, related_name='newsletter_footer')
+    footerId = models.PositiveIntegerField(null=True, blank=True)
+    footer = GenericForeignKey('footerContentType', 'footerId')
+
     header_sender = models.CharField(_('sender'), max_length=255,
                                      default=DEFAULT_HEADER_SENDER)
     header_reply = models.CharField(_('reply to'), max_length=255,

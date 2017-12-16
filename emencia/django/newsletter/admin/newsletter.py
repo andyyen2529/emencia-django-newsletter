@@ -25,6 +25,7 @@ class AttachmentAdminInline(admin.TabularInline):
     fieldsets = ((None, {'fields': (('title', 'file_attachment'))}),)
 
 
+
 class NewsletterAdmin(admin.ModelAdmin):
     date_hierarchy = 'creation_date'
     list_display = ('title', 'mailing_list', 'server', 'status',
@@ -33,7 +34,7 @@ class NewsletterAdmin(admin.ModelAdmin):
     list_filter = ('status', 'sending_date', 'creation_date', 'modification_date')
     search_fields = ('title', 'content', 'header_sender', 'header_reply')
     filter_horizontal = ['test_contacts']
-    fieldsets = ((None, {'fields': ('title', 'subject', 'content',)}),
+    fieldsets = ((None, {'fields': ('title', 'subject', 'headerContentType','headerId', 'footerContentType', 'footerId', 'content',)}),
                  (_('Receivers'), {'fields': ('mailing_list', 'test_contacts',)}),
                  (_('Sending'), {'fields': ('sending_date', 'status',)}),
                  (_('Miscellaneous'), {'fields': ('server', 'header_sender',
