@@ -204,7 +204,7 @@ class Mailer(object):
         if self.test:
             return True
 
-        if self.newsletter.sending_date <= datetime.now() and \
+        if self.newsletter.sending_date <= timezone.now() and \
                (self.newsletter.status == Newsletter.WAITING or \
                 self.newsletter.status == Newsletter.SENDING):
             return True
