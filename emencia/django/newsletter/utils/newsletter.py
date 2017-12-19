@@ -23,16 +23,17 @@ def body_insertion(content, insertion, end=False):
         content = '<body>%s</body>' % content
     soup = BeautifulSoup(content)
 
-    if BeautifulSoup(insertion).body:
+    parsedHtml = BeautifulSoup(insertion)
+    if parsedHtml.body:
         if end:
-            soup.body.append(BeautifulSoup(insertion).body.findChildren()[0])
+            soup.body.append(parsedHtml.body.findChildren()[0])
         else:
-            soup.body.insert(0, BeautifulSoup(insertion).body.findChildren()[0])
+            soup.body.insert(0, parsedHtml.body.findChildren()[0])
     else:
         if end:
-            soup.body.append(BeautifulSoup(insertion).findChildren()[0])
+            soup.body.append(parsedHtml.findChildren()[0])
         else:
-            soup.body.insert(0, BeautifulSoup(insertion).findChildren()[0])
+            soup.body.insert(0, parsedHtml.findChildren()[0])
         
     return soup.prettify()
 
