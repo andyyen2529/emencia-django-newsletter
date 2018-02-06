@@ -3,6 +3,7 @@ import mimetypes
 
 from smtplib import SMTPRecipientsRefused
 from datetime import datetime
+from django.utils import timezone
 
 try:
     from email.mime.multipart import MIMEMultipart
