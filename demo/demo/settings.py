@@ -39,6 +39,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.admindocs.middleware.XViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    
     )
 
 ROOT_URLCONF = 'demo.urls'
@@ -53,7 +54,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.i18n',
-                'django.core.context_processors.request',
+                'django.template.context_processors.request',
                 'django.template.context_processors.media',
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
@@ -85,3 +86,7 @@ DEBUG = True
 STATIC_URL = '/static/'
 
 NEWSLETTER_DEFAULT_HEADER_SENDER = 'My NewsLetter <mq.nuwainfo.com>'
+
+LOCALE_PATHS = (
+    'locale',
+)

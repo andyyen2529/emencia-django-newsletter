@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.dispatch import Signal
 
 from django.conf.urls import url
-from django.conf.urls import patterns
+#from django.conf.urls import patterns
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -27,12 +27,14 @@ contacts_imported = Signal(providing_args=['source', 'type'])
 
 class ContactAdmin(admin.ModelAdmin):
     date_hierarchy = 'creation_date'
-    list_display = ('email', 'first_name', 'last_name', 'tags', 'tester', 'subscriber',
+    list_display = ('email', 'first_name', 'last_name', 
+    #'tags', 
+    'tester', 'subscriber',
                     'valid', 'total_subscriptions', 'creation_date', 'related_object_admin')
     list_filter = ('subscriber', 'valid', 'tester', 'creation_date', 'modification_date')
     search_fields = ('email', 'first_name', 'last_name', 'tags')
     fieldsets = ((None, {'fields': ('email', 'first_name', 'last_name')}),
-                 (None, {'fields': ('tags',)}),
+                 #(None, {'fields': ('tags',)}),
                  (_('Status'), {'fields': ('subscriber', 'valid', 'tester')}),
                  (_('Advanced'), {'fields': ('object_id', 'content_type'),
                                   'classes': ('collapse',)}),
@@ -154,7 +156,7 @@ class ContactAdmin(admin.ModelAdmin):
 
     def get_urls(self):
         urls = super(ContactAdmin, self).get_urls()
-        my_urls = patterns('',
+        my_urls = [
                            url(r'^import/$',
                                self.admin_site.admin_view(self.importation),
                                name='newsletter_contact_import'),
@@ -166,5 +168,5 @@ class ContactAdmin(admin.ModelAdmin):
                                name='newsletter_contact_export_vcard'),
                            url(r'^export_excel/$',
                                self.admin_site.admin_view(self.exportation_excel),
-                               name='newsletter_contact_export_excel'),)
+                               name='newsletter_contact_export_excel'),]
         return my_urls + urls

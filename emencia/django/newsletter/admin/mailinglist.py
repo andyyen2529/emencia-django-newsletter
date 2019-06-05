@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.contrib import admin
 from django.conf.urls import url
-from django.conf.urls import patterns
+#from django.conf.urls import patterns
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext as _
@@ -75,8 +75,8 @@ class MailingListAdmin(admin.ModelAdmin):
         new_mailing = MailingList(name=_('Merging list at %s') % when,
                                   description=_('Mailing list created by merging at %s') % when)
         new_mailing.save()
-        new_mailing.subscribers = subscribers.keys()
-        new_mailing.unsubscribers = unsubscribers.keys()
+        new_mailing.subscribers = list(subscribers.keys())
+        new_mailing.unsubscribers = list(unsubscribers.keys())
 
         self.message_user(request, _('%s succesfully created by merging.') % new_mailing)
         return HttpResponseRedirect(reverse('admin:newsletter_mailinglist_change',
@@ -99,8 +99,8 @@ class MailingListAdmin(admin.ModelAdmin):
 
     def get_urls(self):
         urls = super(MailingListAdmin, self).get_urls()
-        my_urls = patterns('',
+        my_urls = [
                            url(r'^export/(?P<mailinglist_id>\d+)/$',
                                self.admin_site.admin_view(self.export_subscribers),
-                               name='newsletter_mailinglist_export'),)
+                               name='newsletter_mailinglist_export'),]
         return my_urls + urls

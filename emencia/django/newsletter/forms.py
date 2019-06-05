@@ -35,22 +35,22 @@ class MailingListSubscriptionForm(forms.ModelForm):
         exclude = ('email',)
 
 
-class AllMailingListSubscriptionForm(MailingListSubscriptionForm):
-    """Form for subscribing to all mailing list"""
+# class AllMailingListSubscriptionForm(MailingListSubscriptionForm):
+    # """Form for subscribing to all mailing list"""
 
-    mailing_lists = forms.ModelMultipleChoiceField(
-        queryset=MailingList.objects.all(),
-        initial=[obj.id for obj in MailingList.objects.all()],
-        label=_('Mailing lists'),
-        widget=forms.CheckboxSelectMultiple())
+    # mailing_lists = forms.ModelMultipleChoiceField(
+        # queryset=MailingList.objects.all(),
+        # initial=[obj.id for obj in MailingList.objects.all()],
+        # label=_('Mailing lists'),
+        # widget=forms.CheckboxSelectMultiple())
 
-    def save(self, mailing_list):
-        data = self.cleaned_data
-        contact, created = Contact.objects.get_or_create(
-            email=data['email'],
-            defaults={'first_name': data['first_name'],
-                      'last_name': data['last_name']})
+    # def save(self, mailing_list):
+        # data = self.cleaned_data
+        # contact, created = Contact.objects.get_or_create(
+            # email=data['email'],
+            # defaults={'first_name': data['first_name'],
+                      # 'last_name': data['last_name']})
 
-        for mailing_list in data['mailing_lists']:
-            mailing_list.subscribers.add(contact)
-            mailing_list.unsubscribers.remove(contact)
+        # for mailing_list in data['mailing_lists']:
+            # mailing_list.subscribers.add(contact)
+            # mailing_list.unsubscribers.remove(contact)

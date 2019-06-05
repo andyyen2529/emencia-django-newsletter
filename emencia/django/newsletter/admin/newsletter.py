@@ -1,5 +1,5 @@
 """ModelAdmin for Newsletter"""
-from HTMLParser import HTMLParseError
+#from html.parser import HTMLParseError
 
 from django.db.models import Q
 from django.conf import settings
@@ -137,7 +137,7 @@ class NewsletterAdmin(admin.ModelAdmin):
                 mailer = Mailer(newsletter, test=True)
                 try:
                     mailer.run()
-                except HTMLParseError:
+                except Exception as e:
                     self.message_user(request, _('Unable send newsletter, due to errors within HTML.'))
                     continue
                 self.message_user(request, _('%s succesfully sent.') % newsletter)

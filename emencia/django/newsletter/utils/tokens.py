@@ -15,9 +15,9 @@ class ContactTokenGenerator(object):
         """Method for generating the token"""
 #         from django.utils.hashcompat import sha_constructor
         from hashlib import sha1
-
-        token = sha1(settings.SECRET_KEY + unicode(contact.id) +
-                     contact.email).hexdigest()[::2]
+        message = (settings.SECRET_KEY + str(contact.id) +
+                     contact.email).encode()
+        token = sha1(message).hexdigest()[::2]
         return token
 
     def check_token(self, contact, token):

@@ -5,27 +5,37 @@ from smtplib import SMTPRecipientsRefused
 from datetime import datetime
 from django.utils import timezone
 
-try:
-    from email.mime.multipart import MIMEMultipart
-    from email.mime.text import MIMEText
-    from email.mime.Encoders import encode_base64
-    from email.mime.MIMEAudio import MIMEAudio
-    from email.mime.MIMEBase import MIMEBase
-    from email.mime.MIMEImage import MIMEImage
-except ImportError:  # Python 2.4 compatibility
-    from email.MIMEMultipart import MIMEMultipart
-    from email.MIMEText import MIMEText
-    from email.Encoders import encode_base64
-    from email.MIMEAudio import MIMEAudio
-    from email.MIMEBase import MIMEBase
-    from email.MIMEImage import MIMEImage
+# try:
+    # from email.mime.multipart import MIMEMultipart
+    # from email.mime.text import MIMEText
+    # from email.mime.Encoders import encode_base64
+    # from email.mime.MIMEAudio import MIMEAudio
+    # from email.mime.MIMEBase import MIMEBase
+    # from email.mime.MIMEImage import MIMEImage
+# except ImportError:  # Python 2.4 compatibility
+    # from email.MIMEMultipart import MIMEMultipart
+    # from email.MIMEText import MIMEText
+    # from email.Encoders import encode_base64
+    # from email.MIMEAudio import MIMEAudio
+    # from email.MIMEBase import MIMEBase
+    # from email.MIMEImage import MIMEImage
+    
+from email.encoders import encode_base64    
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+#from email.mime.Encoders import encode_base64
+from email.mime.audio import MIMEAudio
+from email.mime.base import MIMEBase
+from email.mime.image import MIMEImage
+
 from email import message_from_file
 from html2text import html2text
 from django.contrib.sites.models import Site
 from django.template import Context, Template
 from django.template.loader import render_to_string
 from django.utils.encoding import smart_str
-from django.utils.encoding import smart_unicode
+#from django.utils.encoding import smart_unicode
+from django.utils.encoding import smart_text
 
 from emencia.django.newsletter.models import Newsletter
 from emencia.django.newsletter.models import ContactMailingStatus
@@ -103,7 +113,7 @@ class Mailer(object):
         for attachment in self.attachments:
             message.attach(attachment)
 
-        for header, value in self.newsletter.server.custom_headers.items():
+        for header, value in list(self.newsletter.server.custom_headers.items()):
             message[header] = value
 
         return message
@@ -168,20 +178,26 @@ class Mailer(object):
                            'domain': Site.objects.get_current().domain,
                            'newsletter': self.newsletter,
                            'uidb36': uidb36, 'token': token})
+        _context = {'contact': contact,
+                           'domain': Site.objects.get_current().domain,
+                           'newsletter': self.newsletter,
+                           'uidb36': uidb36, 'token': token}
 
         content = self.newsletter_template.render(context)
         if TRACKING_LINKS:
             content = track_links(content, context)
-        link_site = render_to_string('newsletter/newsletter_link_site.html', context)
+        link_site = render_to_string('newsletter/newsletter_link_site.html', _context)
         content = body_insertion(content, link_site)
 
         if INCLUDE_UNSUBSCRIPTION:
-            unsubscription = render_to_string('newsletter/newsletter_link_unsubscribe.html', context)
+            unsubscription = render_to_string('newsletter/newsletter_link_unsubscribe.html', _context)
             content = body_insertion(content, unsubscription, end=True)
         if TRACKING_IMAGE:
-            image_tracking = render_to_string('newsletter/newsletter_image_tracking.html', context)
+            image_tracking = render_to_string('newsletter/newsletter_image_tracking.html', _context)
             content = body_insertion(content, image_tracking, end=True)
-        return smart_unicode(content)
+        #return smart_unicode(content)
+        return smart_text(content)
+
 
     def update_newsletter_status(self):
         """Update the status of the newsletter"""

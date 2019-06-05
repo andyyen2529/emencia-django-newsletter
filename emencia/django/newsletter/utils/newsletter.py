@@ -1,5 +1,5 @@
 """Utils for newsletter"""
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 
 from bs4 import BeautifulSoup
 from django.core.urlresolvers import reverse
@@ -10,8 +10,8 @@ from emencia.django.newsletter.models import Link
 def get_webpage_content(url):
     """Return the content of the website
     located in the body markup"""
-    request = urllib2.Request(url)
-    page = urllib2.urlopen(request)
+    request = urllib.request.Request(url)
+    page = urllib.request.urlopen(request)
     soup = BeautifulSoup(page)
 
     return soup.body.prettify()
