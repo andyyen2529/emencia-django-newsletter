@@ -88,6 +88,8 @@ class SMTPServer(models.Model):
 
     def __unicode__(self):
         return '%s (%s)' % (self.name, self.host)
+    def __str__(self):
+        return '%s (%s)' % (self.name, self.host)
 
     class Meta:
         verbose_name = _('SMTP server')
@@ -144,6 +146,15 @@ class Contact(models.Model):
         if self.tags:
             return '%s | %s' % (contact_name, self.tags)
         return contact_name
+        
+    def __str__(self):
+        if self.first_name and self.last_name:
+            contact_name = '%s %s' % (self.last_name, self.first_name)
+        else:
+            contact_name = self.email
+        if self.tags:
+            return '%s | %s' % (contact_name, self.tags)
+        return contact_name
 
     class Meta:
         ordering = ('creation_date',)
@@ -160,7 +171,7 @@ class MailingList(models.Model):
                                          related_name='mailinglist_subscriber')
     unsubscribers = models.ManyToManyField(Contact, verbose_name=_('unsubscribers'),
                                            related_name='mailinglist_unsubscriber',
-                                           null=True, blank=True)
+                                           blank=True)
 
     creation_date = models.DateTimeField(_('creation date'), auto_now_add=True)
     modification_date = models.DateTimeField(_('modification date'), auto_now=True)
@@ -179,6 +190,9 @@ class MailingList(models.Model):
             id__in=unsubscribers_id)
 
     def __unicode__(self):
+        return self.name
+        
+    def __str__(self):
         return self.name
 
     class Meta:
@@ -216,7 +230,7 @@ class Newsletter(models.Model):
 
     mailing_list = models.ForeignKey(MailingList, verbose_name=_('mailing list'))
     test_contacts = models.ManyToManyField(Contact, verbose_name=_('test contacts'),
-                                           blank=True, null=True)
+                                           blank=True)
 
     server = models.ForeignKey(SMTPServer, verbose_name=_('smtp server'),
                                default=1)
@@ -266,6 +280,9 @@ class Newsletter(models.Model):
 
     def __unicode__(self):
         return self.title
+        
+    def __str__(self):
+        return self.title
 
     class Meta:
         ordering = ('creation_date',)
@@ -285,6 +302,9 @@ class Link(models.Model):
         return self.url
 
     def __unicode__(self):
+        return self.title
+        
+    def __str__(self):
         return self.title
 
     class Meta:
@@ -326,6 +346,8 @@ class Attachment(models.Model):
         verbose_name_plural = _('attachments')
 
     def __unicode__(self):
+        return self.title
+    def __str__(self):
         return self.title
 
     def get_absolute_url(self):
@@ -371,6 +393,10 @@ class ContactMailingStatus(models.Model):
         return '%s : %s : %s' % (self.newsletter.__unicode__(),
                                  self.contact.__unicode__(),
                                  self.get_status_display())
+    def __str__(self):
+        return '%s : %s : %s' % (self.newsletter.__unicode__(),
+                                 self.contact.__unicode__(),
+                                 self.get_status_display())
 
     class Meta:
         ordering = ('creation_date',)
@@ -384,11 +410,11 @@ class WorkGroup(models.Model):
     group = models.ForeignKey(Group, verbose_name=_('permissions group'))
 
     contacts = models.ManyToManyField(Contact, verbose_name=_('contacts'),
-                                      blank=True, null=True)
+                                      blank=True)
     mailinglists = models.ManyToManyField(MailingList, verbose_name=_('mailing lists'),
-                                          blank=True, null=True)
+                                          blank=True)
     newsletters = models.ManyToManyField(Newsletter, verbose_name=_('newsletters'),
-                                         blank=True, null=True)
+                                         blank=True)
 
     def __unicode__(self):
         return self.name
