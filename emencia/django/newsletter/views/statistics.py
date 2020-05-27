@@ -8,7 +8,7 @@ from django.template import RequestContext
 from django.utils.encoding import smart_str
 from django.utils.translation import ugettext as _
 from django.shortcuts import get_object_or_404
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.contrib.auth.decorators import login_required
 from django.template.defaultfilters import date
 
@@ -59,8 +59,7 @@ def view_newsletter_statistics(request, slug):
                'stats': get_newsletter_statistics(newsletter),
                'period': get_statistics_period(newsletter)}
 
-    return render_to_response('newsletter/newsletter_statistics.html',
-                              context, context_instance=RequestContext(request))
+    return render(request, 'newsletter/newsletter_statistics.html', context)
 
 
 @login_required
@@ -104,8 +103,7 @@ def view_newsletter_density(request, slug):
     context = {'object': newsletter,
                'top_links': get_newsletter_top_links(status)['top_links']}
 
-    return render_to_response('newsletter/newsletter_density.html',
-                              context, context_instance=RequestContext(request))
+    return render(request, 'newsletter/newsletter_density.html', context)
 
 
 @login_required

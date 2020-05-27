@@ -3,7 +3,7 @@ import base64
 
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext
 from django.utils.translation import ugettext as _
 from django.shortcuts import render_to_response
@@ -48,6 +48,5 @@ def view_newsletter_historic(request, slug):
                'original': newsletter,
                'opts': opts,
                'object_id': newsletter.pk,
-               'app_label': opts.app_label}
-    return render_to_response('newsletter/newsletter_historic.html',
-                              context, context_instance=RequestContext(request))
+               'app_label': opts.app_label}                             
+    return render(request, 'newsletter/newsletter_historic.html', context)
