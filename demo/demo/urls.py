@@ -15,7 +15,7 @@ urlpatterns = [
                        url(r'^$', RedirectView.as_view(url='/admin/')),
                        url(r'^newsletters/', include('emencia.django.newsletter.urls')),
                        url(r'^i18n/', include('django.conf.urls.i18n')),
-                       url(r'^admin/', include(admin.site.urls)),
+                       url(r'^admin/', admin.site.urls),
                        ]
  
 urlpatterns += [#'django.views.static',

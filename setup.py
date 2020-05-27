@@ -34,5 +34,5 @@ setup(name='emencia.django.newsletter',
                         'vobject==0.9.6.1',
                         'xlwt==1.3.0',
                         'xlrd==1.2.0',
-                        'Django==1.11.20',
+                        'Django==2.2.12',
                         'pytz'])

@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
                 ('object_id', models.PositiveIntegerField(null=True, blank=True)),
                 ('creation_date', models.DateTimeField(auto_now_add=True, verbose_name='creation date')),
                 ('modification_date', models.DateTimeField(auto_now=True, verbose_name='modification date')),
-                ('content_type', models.ForeignKey(blank=True, to='contenttypes.ContentType', null=True)),
+                ('content_type', models.ForeignKey(blank=True, to='contenttypes.ContentType', null=True,on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ('creation_date',),
@@ -56,7 +56,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('status', models.IntegerField(verbose_name='status', choices=[(-1, 'sent in test'), (0, 'sent'), (1, 'error'), (2, 'invalid email'), (4, 'opened'), (5, 'opened on site'), (6, 'link opened'), (7, 'unsubscription'), (8, 'bounced'), (9, 'complaint'), (10, 'rejected')])),
                 ('creation_date', models.DateTimeField(auto_now_add=True, verbose_name='creation date')),
-                ('contact', models.ForeignKey(verbose_name='contact', to='newsletter.Contact')),
+                ('contact', models.ForeignKey(verbose_name='contact', to='newsletter.Contact', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ('creation_date',),
@@ -108,7 +108,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(help_text='Used for displaying the newsletter on the site.', unique=True)),
                 ('creation_date', models.DateTimeField(auto_now_add=True, verbose_name='creation date')),
                 ('modification_date', models.DateTimeField(auto_now=True, verbose_name='modification date')),
-                ('mailing_list', models.ForeignKey(verbose_name='mailing list', to='newsletter.MailingList')),
+                ('mailing_list', models.ForeignKey(verbose_name='mailing list', to='newsletter.MailingList', on_delete=models.CASCADE)),
             ],
             options={
                 'ordering': ('creation_date',),
@@ -141,7 +141,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=255, verbose_name='name')),
                 ('contacts', models.ManyToManyField(to='newsletter.Contact', null=True, verbose_name='contacts', blank=True)),
-                ('group', models.ForeignKey(verbose_name='permissions group', to='auth.Group')),
+                ('group', models.ForeignKey(verbose_name='permissions group', to='auth.Group', on_delete=models.CASCADE)),
                 ('mailinglists', models.ManyToManyField(to='newsletter.MailingList', null=True, verbose_name='mailing lists', blank=True)),
                 ('newsletters', models.ManyToManyField(to='newsletter.Newsletter', null=True, verbose_name='newsletters', blank=True)),
             ],
@@ -153,7 +153,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='newsletter',
             name='server',
-            field=models.ForeignKey(default=1, verbose_name='smtp server', to='newsletter.SMTPServer'),
+            field=models.ForeignKey(default=1, verbose_name='smtp server', to='newsletter.SMTPServer', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='newsletter',
@@ -163,16 +163,16 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='contactmailingstatus',
             name='link',
-            field=models.ForeignKey(verbose_name='link', blank=True, to='newsletter.Link', null=True),
+            field=models.ForeignKey(verbose_name='link', blank=True, to='newsletter.Link', null=True, on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='contactmailingstatus',
             name='newsletter',
-            field=models.ForeignKey(verbose_name='newsletter', to='newsletter.Newsletter'),
+            field=models.ForeignKey(verbose_name='newsletter', to='newsletter.Newsletter', on_delete=models.CASCADE),
         ),
         migrations.AddField(
             model_name='attachment',
             name='newsletter',
-            field=models.ForeignKey(verbose_name='newsletter', to='newsletter.Newsletter'),
+            field=models.ForeignKey(verbose_name='newsletter', to='newsletter.Newsletter', on_delete=models.CASCADE),
         ),
     ]

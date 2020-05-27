@@ -6,7 +6,7 @@ from datetime import timedelta
 
 from django.db import models
 from django.utils.encoding import smart_str
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
 #from django.contrib.contenttypes import generic
@@ -107,7 +107,7 @@ class Contact(models.Model):
     tester = models.BooleanField(_('contact tester'), default=False)
     tags = TagField(_('tags'))
 
-    content_type = models.ForeignKey(ContentType, blank=True, null=True)
+    content_type = models.ForeignKey(ContentType, blank=True, null=True,on_delete=models.CASCADE)
     object_id = models.PositiveIntegerField(blank=True, null=True)
     content_object = GenericForeignKey('content_type', 'object_id') # generic.GenericForeignKey
 
@@ -228,18 +228,18 @@ class Newsletter(models.Model):
             'Edit your newsletter here')
     )
 
-    mailing_list = models.ForeignKey(MailingList, verbose_name=_('mailing list'))
+    mailing_list = models.ForeignKey(MailingList, verbose_name=_('mailing list'), on_delete=models.CASCADE)
     test_contacts = models.ManyToManyField(Contact, verbose_name=_('test contacts'),
                                            blank=True)
 
     server = models.ForeignKey(SMTPServer, verbose_name=_('smtp server'),
-                               default=1)
+                               default=1, on_delete=models.CASCADE)
 
-    headerContentType = models.ForeignKey(ContentType, null=True, blank=True, related_name='newsletter_header')
+    headerContentType = models.ForeignKey(ContentType, null=True, blank=True, related_name='newsletter_header', on_delete=models.CASCADE)
     headerId = models.PositiveIntegerField(null=True, blank=True)
     header = GenericForeignKey('headerContentType', 'headerId')
 
-    footerContentType = models.ForeignKey(ContentType, null=True, blank=True, related_name='newsletter_footer')
+    footerContentType = models.ForeignKey(ContentType, null=True, blank=True, related_name='newsletter_footer', on_delete=models.CASCADE)
     footerId = models.PositiveIntegerField(null=True, blank=True)
     footer = GenericForeignKey('footerContentType', 'footerId')
 
@@ -259,17 +259,14 @@ class Newsletter(models.Model):
     def mails_sent(self):
         return self.contactmailingstatus_set.filter(status=ContactMailingStatus.SENT).count()
 
-    @models.permalink
     def get_absolute_url(self):
         return ('newsletter_newsletter_preview', (self.slug,))
 
-    @models.permalink
     def get_historic_url(self):
-        return ('newsletter_newsletter_historic', (self.slug,))
+        return reverse('newsletter_newsletter_historic', kwargs={'slug': self.slug})
 
-    @models.permalink
     def get_statistics_url(self):
-        return ('newsletter_newsletter_statistics', (self.slug,))
+        return reverse('newsletter_newsletter_statistics', kwargs={'slug': self.slug})
 
     @property
     def get_statistics_display_url(self):
@@ -319,7 +316,7 @@ def get_newsletter_storage_path(self, filename):
 class Attachment(models.Model):
     """Attachment file in a newsletter"""
 
-    newsletter = models.ForeignKey(Newsletter, verbose_name=_('newsletter'))
+    newsletter = models.ForeignKey(Newsletter, verbose_name=_('newsletter'), on_delete=models.CASCADE)
     title = models.CharField(_('title'), max_length=255)
     file_attachment = models.FileField(_('file to attach'), max_length=255,
                                        upload_to=get_newsletter_storage_path)
@@ -381,11 +378,11 @@ class ContactMailingStatus(models.Model):
                       (REJECTED, _('rejected'))
                       )
 
-    newsletter = models.ForeignKey(Newsletter, verbose_name=_('newsletter'))
-    contact = models.ForeignKey(Contact, verbose_name=_('contact'))
+    newsletter = models.ForeignKey(Newsletter, verbose_name=_('newsletter'), on_delete=models.CASCADE)
+    contact = models.ForeignKey(Contact, verbose_name=_('contact'), on_delete=models.CASCADE)
     status = models.IntegerField(_('status'), choices=STATUS_CHOICES)
     link = models.ForeignKey(Link, verbose_name=_('link'),
-                             blank=True, null=True)
+                             blank=True, null=True, on_delete=models.CASCADE)
 
     creation_date = models.DateTimeField(_('creation date'), auto_now_add=True)
 
@@ -407,7 +404,7 @@ class ContactMailingStatus(models.Model):
 class WorkGroup(models.Model):
     """Work Group for privatization of the ressources"""
     name = models.CharField(_('name'), max_length=255)
-    group = models.ForeignKey(Group, verbose_name=_('permissions group'))
+    group = models.ForeignKey(Group, verbose_name=_('permissions group'), on_delete=models.CASCADE)
 
     contacts = models.ManyToManyField(Contact, verbose_name=_('contacts'),
                                       blank=True)

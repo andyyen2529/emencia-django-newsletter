@@ -31,7 +31,7 @@ LANGUAGES = (('en', gettext('English')),
              ('ja', gettext('Japanese')),
              ('zh_CN', gettext('Simplified Chinese')),)
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,7 +64,7 @@ TEMPLATES = [
             'loaders': [
                 'django.template.loaders.filesystem.Loader',
                 'django.template.loaders.app_directories.Loader',
-                'django.template.loaders.eggs.Loader',
+                # 'django.template.loaders.eggs.Loader',
             ]
         },
     },
@@ -77,6 +77,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.staticfiles',
+    'django.contrib.messages',
     'tagging',
     'emencia.django.newsletter',
     )

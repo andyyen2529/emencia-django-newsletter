@@ -4,6 +4,7 @@
 from django.db.models import Q
 from django.conf import settings
 from django.contrib import admin
+from django.utils.html import format_html
 from django.utils.translation import ugettext as _
 
 from emencia.django.newsletter.models import Contact
@@ -116,7 +117,7 @@ class NewsletterAdmin(admin.ModelAdmin):
     def historic_link(self, newsletter):
         """Display link for historic"""
         if newsletter.contactmailingstatus_set.count():
-            return '<a href="%s">%s</a>' % (newsletter.get_historic_url(), _('View historic'))
+            return format_html('<a href="%s">%s</a>' % (newsletter.get_historic_url(), _('View historic')))
         return _('Not available')
     historic_link.allow_tags = True
     historic_link.short_description = _('Historic')
@@ -125,7 +126,7 @@ class NewsletterAdmin(admin.ModelAdmin):
         """Display link for statistics"""
         if newsletter.status == Newsletter.SENDING or \
            newsletter.status == Newsletter.SENT:
-            return '<a href="%s">%s</a>' % (newsletter.get_statistics_url(), _('View statistics'))
+            return format_html('<a href="%s">%s</a>' % (newsletter.get_statistics_url(), _('View statistics')))
         return _('Not available')
     statistics_link.allow_tags = True
     statistics_link.short_description = _('Statistics')

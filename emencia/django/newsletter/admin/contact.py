@@ -6,7 +6,7 @@ from django.dispatch import Signal
 
 from django.conf.urls import url
 #from django.conf.urls import patterns
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.utils.translation import ugettext as _

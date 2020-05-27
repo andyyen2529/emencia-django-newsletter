@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='newsletter',
             name='footerContentType',
-            field=models.ForeignKey(related_name='newsletter_footer', blank=True, to='contenttypes.ContentType', null=True),
+            field=models.ForeignKey(related_name='newsletter_footer', blank=True, to='contenttypes.ContentType', null=True, on_delete=models.CASCADE
+),
         ),
         migrations.AddField(
             model_name='newsletter',
@@ -25,7 +26,8 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='newsletter',
             name='headerContentType',
-            field=models.ForeignKey(related_name='newsletter_header', blank=True, to='contenttypes.ContentType', null=True),
+            field=models.ForeignKey(related_name='newsletter_header', blank=True, to='contenttypes.ContentType', null=True, on_delete=models.CASCADE
+),
         ),
         migrations.AddField(
             model_name='newsletter',
