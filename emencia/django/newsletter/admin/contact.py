@@ -98,7 +98,8 @@ class ContactAdmin(admin.ModelAdmin):
         new_mailing = MailingList(name=_('New mailinglist at %s') % when,
                                   description=_('New mailing list created in admin at %s') % when)
         new_mailing.save()
-        new_mailing.subscribers = queryset.all()
+        # new_mailing.subscribers = queryset.all()
+        new_mailing.subscribers.set(queryset.all())
 
         if not request.user.is_superuser:
             for workgroup in request_workgroups(request):
@@ -137,7 +138,7 @@ class ContactAdmin(admin.ModelAdmin):
                         self.list_display_links, self.list_filter,
                         self.date_hierarchy, self.search_fields,
                         self.list_select_related, self.list_per_page,
-                        self.list_max_show_all, self.list_editable, self)
+                        self.list_max_show_all, self.list_editable, self, self.sortable_by)
         return cl.get_queryset(request)
 
     def creation_mailinglist(self, request):
