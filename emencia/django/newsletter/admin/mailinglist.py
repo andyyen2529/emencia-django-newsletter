@@ -8,6 +8,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404
 from django.utils.translation import ugettext as _
 from django.http import HttpResponseRedirect
+from django.utils.html import format_html
 
 from emencia.django.newsletter.models import Contact
 from emencia.django.newsletter.models import MailingList
@@ -87,9 +88,9 @@ class MailingListAdmin(admin.ModelAdmin):
 
     def exportation_link(self, mailinglist):
         """Display link for exportation"""
-        return '<a href="%s">%s</a>' % (reverse('admin:newsletter_mailinglist_export',
+        return format_html('<a href="%s">%s</a>' % (reverse('admin:newsletter_mailinglist_export',
                                                 args=[mailinglist.pk]),
-                                        _('Export Subscribers'))
+                                        _('Export Subscribers')))
     exportation_link.allow_tags = True
     exportation_link.short_description = _('Export')
 
